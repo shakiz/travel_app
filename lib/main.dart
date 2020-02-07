@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'location_details.dart';
 
 void main() {
   runApp(TravelApp());
@@ -14,35 +15,7 @@ class _TravelState extends State<TravelApp>{
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Travel Guide",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Travel Guide"),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.teal
-              ),
-              child: Text("One"),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.white
-              ),
-              child: Text("Two"),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.green
-              ),
-              child: Text("Three"),
-            ),
-          ],
-        )
-      ),
+      home: LocationDetail(),
     );
   }
 }
