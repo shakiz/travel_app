@@ -5,7 +5,7 @@ class MockLocation extends Location{
   static Location fetchAny(){
     return Location(
       name : "Dhaka",
-      url : "https://images.squarespace-cdn.com/content/v1/5423f995e4b01248b3c04a4a/1413897706294-2P7KI59GZXOSJ78EUBO6/ke17ZwdGBToddI8pDm48kGTK98kVcUb8IrciLDJvxX0UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcgCB8U4gyuVN0Yde7lWYVWDyDXMPUC34VU5G6T_3y6YYCDq4s-XOnJIBPGC4XEkyx/image-asset.jpeg?format=1500w",
+      url : "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
       facts : <LocationFact>[
         LocationFact(
           title : "Capital",

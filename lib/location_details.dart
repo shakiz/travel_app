@@ -15,13 +15,20 @@ class LocationDetail extends StatelessWidget{
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: _getFacts(location),
+          children: _getLocations(context, location),
         )
     );
   }
 
+  List<Widget> _getLocations(BuildContext context, Location location){
+    var dataList = List<Widget>();
+    dataList.add(_renderCover(location.url,200.0));
+    dataList.addAll(_getFacts(context, location));
+    return dataList;
+  }
+
   //returns location fact list
-  List<Widget> _getFacts(Location location){
+  List<Widget> _getFacts(BuildContext context, Location location){
     var factList = List<Widget>();
     for(int start=0;start<location.facts.length;start++){
       factList.add(_getTitle(location.facts[start].title));
@@ -32,12 +39,38 @@ class LocationDetail extends StatelessWidget{
 
   //returns text of a location
   Widget _getText(String text){
-    return  Text(text);
+    return Container(
+      padding: EdgeInsets.fromLTRB(20, 0, 10, 15),
+      child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.black54
+          ),
+      ),
+    );
   }
 
   //returns title of a location
   Widget _getTitle(String title){
-    return  Text(title);
+    return  Container(
+      padding: EdgeInsets.fromLTRB(20, 30, 20, 15),
+      child: Text(
+        title,
+        textAlign: TextAlign.left,
+        style: TextStyle(
+            fontSize: 25,
+            color: Colors.blueGrey
+        ),
+      ),
+    );
+  }
+  
+  Widget _renderCover(String url, double height){
+    return Container(
+      constraints: BoxConstraints.tightFor(height: height),
+      child: Image.network(url, fit: BoxFit.fitWidth,),
+    );
   }
 
 }
