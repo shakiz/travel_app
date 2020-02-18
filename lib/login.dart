@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'location_list.dart';
 import 'mocks/mock_location.dart';
 import 'models/location.dart';
@@ -8,7 +7,6 @@ class Login extends StatelessWidget {
   final List<Location> locationList = MockLocation.fetchAll();
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       resizeToAvoidBottomInset: false, //avoid overlap with keyboard
       backgroundColor: Colors.indigo,
@@ -109,6 +107,7 @@ class Login extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 60),
                     child: Center(
                       child: RaisedButton(
+                        color: Colors.black54,
                         child: Text(
                           "Login",
                           style: TextStyle(color: Colors.white),
