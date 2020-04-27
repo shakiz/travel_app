@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'location_list.dart';
 import 'mocks/mock_location.dart';
 import 'models/location.dart';
@@ -9,7 +10,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false, //avoid overlap with keyboard
-      backgroundColor: Colors.indigo,
+      backgroundColor: Colors.blueGrey,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -36,58 +37,50 @@ class Login extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("Hello!!,\nWelcome",
-                    style: TextStyle(
-                        fontSize: 36,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold)),
-                SizedBox(
-                  height: 40,
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.transparent),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(color: Colors.white))),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Enter username",
-                              hintStyle: TextStyle(color: Colors.white)),
-                        ),
-                      )
-                    ],
+                Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Container(
+                      margin: EdgeInsets.all(8),
+                      child: Text("Hello!!\nWelcome",
+                          style: TextStyle(
+                              fontSize: 36,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    )),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: TextField(
+                      autofocus: false,
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.white)),
+                          labelText: 'Username',
+                          hintText: 'Enter username here',
+                          hintStyle: new TextStyle(color: Colors.white),
+                          labelStyle: new TextStyle(color: Colors.white),
+                          contentPadding: EdgeInsets.all(10)),
+                    ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.transparent),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(color: Colors.white))),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Enter password",
-                              hintStyle: TextStyle(color: Colors.white)),
-                        ),
-                      )
-                    ],
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: TextField(
+                      autofocus: false,
+                      obscureText: true,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          enabledBorder: new OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.white)),
+                          labelText: 'Password',
+                          hintText: 'Enter password here',
+                          hintStyle: new TextStyle(color: Colors.white),
+                          labelStyle: new TextStyle(color: Colors.white),
+                          contentPadding: EdgeInsets.all(10)),
+                    ),
                   ),
                 ),
                 SizedBox(
