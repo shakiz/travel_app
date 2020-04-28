@@ -26,11 +26,26 @@ class LocationList extends StatelessWidget {
   //This will build list item
   Widget _listViewItemBuilder(BuildContext context, int index) {
     var location = this.locationList[index];
-    return ListTile(
-      contentPadding: EdgeInsets.all(10),
-      leading: _itemThumbnail(location),
-      title: _itemTitle(location),
-      onTap: () => _onClickListener(context, location),
+    return Container(
+      margin: EdgeInsets.all(6),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Card(
+            elevation: 4,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: ListTile(
+              contentPadding: EdgeInsets.all(8),
+              leading: _itemThumbnail(location),
+              title: _itemTitle(location),
+              onTap: () => _onClickListener(context, location),
+            ),
+          ),
+          decoration: BoxDecoration(
+              boxShadow: [BoxShadow(color: Colors.grey[300], blurRadius: 10)]),
+        ),
+      ),
     );
   }
 

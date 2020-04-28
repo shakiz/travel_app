@@ -52,6 +52,7 @@ class Login extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(8),
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       autofocus: false,
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -69,6 +70,7 @@ class Login extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(8),
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       autofocus: false,
                       obscureText: true,
                       keyboardType: TextInputType.number,

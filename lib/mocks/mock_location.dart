@@ -1,3 +1,5 @@
+import 'package:travel_app/models/popular_places.dart';
+
 import '../models/location.dart';
 import '../models/location_fact.dart';
 
@@ -16,11 +18,17 @@ class MockLocation extends Location {
               title: 'How to Get There',
               text:
                   'Kyoto airport, with several terminals, is located 16 kilometres south of the city and is also known as Kyoto. Kyoto can also be reached by transport links from other regional airports.')
+        ],
+        places: <PopularPlaces>[
+          PopularPlaces(place: 'Museum of Maritime Science'),
+          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
+          PopularPlaces(place: 'Shiokaze Park'),
+          PopularPlaces(place: 'Fuji Television')
         ]),
     Location(
         name: 'Mount Fuji',
         url:
-            'https://exploreshizuoka.com/wp-content/uploads/sites/9/2018/03/Mount-Fuji-HEADERS19-6.jpg',
+            'https://www.planetware.com/photos-large/JPN/japan-mt-fuji-and-cherry-blossoms.jpg',
         facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -30,6 +38,12 @@ class MockLocation extends Location {
               title: 'Did You Know',
               text:
                   'There are three cities that surround Mount Fuji: Gotemba, Fujiyoshida and Fujinomiya.')
+        ],
+        places: <PopularPlaces>[
+          PopularPlaces(place: 'Museum of Maritime Science'),
+          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
+          PopularPlaces(place: 'Shiokaze Park'),
+          PopularPlaces(place: 'Fuji Television')
         ]),
     Location(
         name: 'Kiyomizu-dera',
@@ -43,6 +57,12 @@ class MockLocation extends Location {
           LocationFact(
               title: 'Architectural Style',
               text: 'Japanese Buddhist architecture')
+        ],
+        places: <PopularPlaces>[
+          PopularPlaces(place: 'Museum of Maritime Science'),
+          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
+          PopularPlaces(place: 'Shiokaze Park'),
+          PopularPlaces(place: 'Fuji Television')
         ]),
     Location(
         name: 'Kinkaku-ji',
@@ -57,6 +77,12 @@ class MockLocation extends Location {
               title: 'Did You Know',
               text:
                   'The Golden Pavilion is set in a magnificent Japanese strolling garden.')
+        ],
+        places: <PopularPlaces>[
+          PopularPlaces(place: 'Museum of Maritime Science'),
+          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
+          PopularPlaces(place: 'Shiokaze Park'),
+          PopularPlaces(place: 'Fuji Television')
         ]),
     Location(
         name: 'Odaiba',
@@ -71,6 +97,12 @@ class MockLocation extends Location {
               title: 'Did You Know',
               text:
                   'The pedestrian path begins a short walk from Shibaura-futo Station along the Yurikamome on the "Tokyo side" of the bridge, while Odaiba Kaihinkoen Station is the nearest station on the "Odaiba side."')
+        ],
+        places: <PopularPlaces>[
+          PopularPlaces(place: 'Museum of Maritime Science'),
+          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
+          PopularPlaces(place: 'Shiokaze Park'),
+          PopularPlaces(place: 'Fuji Television')
         ]),
   ];
 
