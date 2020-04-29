@@ -23,8 +23,9 @@ class LocationDetail extends StatelessWidget {
 
   List<Widget> _getLocations(BuildContext context, Location location) {
     var dataList = List<Widget>();
-    dataList.add(_renderCover(location.url, 200.0));
+    dataList.add(_renderCover(location.url, 100.0));
     dataList.addAll(_getFacts(context, location));
+    dataList.add(_getTitle('Popular places of ' + location.name));
     dataList.addAll(_getPlaces(context, location));
     return dataList;
   }
@@ -44,6 +45,7 @@ class LocationDetail extends StatelessWidget {
     var factList = List<Widget>();
     for (int start = 0; start < location.places.length; start++) {
       factList.add(_getPlaceTitle(location.places[start].place));
+      factList.add(_renderPlaceCover(location.places[start].url, 84));
     }
     return factList;
   }
@@ -81,6 +83,17 @@ class LocationDetail extends StatelessWidget {
         textAlign: TextAlign.left,
         style: TextStyle(
             fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blueGrey),
+      ),
+    );
+  }
+
+  //returns popular place image
+  Widget _renderPlaceCover(String url, double height) {
+    return Container(
+      constraints: BoxConstraints.tightFor(height: height),
+      child: Image.network(
+        url,
+        fit: BoxFit.fitWidth,
       ),
     );
   }

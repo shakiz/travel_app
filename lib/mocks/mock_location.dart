@@ -20,10 +20,22 @@ class MockLocation extends Location {
                   'Kyoto airport, with several terminals, is located 16 kilometres south of the city and is also known as Kyoto. Kyoto can also be reached by transport links from other regional airports.')
         ],
         places: <PopularPlaces>[
-          PopularPlaces(place: 'Museum of Maritime Science'),
-          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
-          PopularPlaces(place: 'Shiokaze Park'),
-          PopularPlaces(place: 'Fuji Television')
+          PopularPlaces(
+              place: 'Museum of Maritime Science',
+              url:
+                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+          PopularPlaces(
+              place: 'Legolan Discovery Center Tokyo',
+              url:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+          PopularPlaces(
+              place: 'Shiokaze Park',
+              url:
+                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+          PopularPlaces(
+              place: 'Fuji Television',
+              url:
+                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
         ]),
     Location(
         name: 'Mount Fuji',
@@ -40,10 +52,22 @@ class MockLocation extends Location {
                   'There are three cities that surround Mount Fuji: Gotemba, Fujiyoshida and Fujinomiya.')
         ],
         places: <PopularPlaces>[
-          PopularPlaces(place: 'Museum of Maritime Science'),
-          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
-          PopularPlaces(place: 'Shiokaze Park'),
-          PopularPlaces(place: 'Fuji Television')
+          PopularPlaces(
+              place: 'Museum of Maritime Science',
+              url:
+                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+          PopularPlaces(
+              place: 'Legolan Discovery Center Tokyo',
+              url:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+          PopularPlaces(
+              place: 'Shiokaze Park',
+              url:
+                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+          PopularPlaces(
+              place: 'Fuji Television',
+              url:
+                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
         ]),
     Location(
         name: 'Kiyomizu-dera',
@@ -59,10 +83,22 @@ class MockLocation extends Location {
               text: 'Japanese Buddhist architecture')
         ],
         places: <PopularPlaces>[
-          PopularPlaces(place: 'Museum of Maritime Science'),
-          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
-          PopularPlaces(place: 'Shiokaze Park'),
-          PopularPlaces(place: 'Fuji Television')
+          PopularPlaces(
+              place: 'Museum of Maritime Science',
+              url:
+                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+          PopularPlaces(
+              place: 'Legolan Discovery Center Tokyo',
+              url:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+          PopularPlaces(
+              place: 'Shiokaze Park',
+              url:
+                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+          PopularPlaces(
+              place: 'Fuji Television',
+              url:
+                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
         ]),
     Location(
         name: 'Kinkaku-ji',
@@ -79,10 +115,22 @@ class MockLocation extends Location {
                   'The Golden Pavilion is set in a magnificent Japanese strolling garden.')
         ],
         places: <PopularPlaces>[
-          PopularPlaces(place: 'Museum of Maritime Science'),
-          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
-          PopularPlaces(place: 'Shiokaze Park'),
-          PopularPlaces(place: 'Fuji Television')
+          PopularPlaces(
+              place: 'Museum of Maritime Science',
+              url:
+                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+          PopularPlaces(
+              place: 'Legolan Discovery Center Tokyo',
+              url:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+          PopularPlaces(
+              place: 'Shiokaze Park',
+              url:
+                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+          PopularPlaces(
+              place: 'Fuji Television',
+              url:
+                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
         ]),
     Location(
         name: 'Odaiba',
@@ -99,10 +147,22 @@ class MockLocation extends Location {
                   'The pedestrian path begins a short walk from Shibaura-futo Station along the Yurikamome on the "Tokyo side" of the bridge, while Odaiba Kaihinkoen Station is the nearest station on the "Odaiba side."')
         ],
         places: <PopularPlaces>[
-          PopularPlaces(place: 'Museum of Maritime Science'),
-          PopularPlaces(place: 'Legolan Discovery Center Tokyo'),
-          PopularPlaces(place: 'Shiokaze Park'),
-          PopularPlaces(place: 'Fuji Television')
+          PopularPlaces(
+              place: 'Museum of Maritime Science',
+              url:
+                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+          PopularPlaces(
+              place: 'Legolan Discovery Center Tokyo',
+              url:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+          PopularPlaces(
+              place: 'Shiokaze Park',
+              url:
+                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+          PopularPlaces(
+              place: 'Fuji Television',
+              url:
+                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
         ]),
   ];
 
