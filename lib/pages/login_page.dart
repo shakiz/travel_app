@@ -1,136 +1,149 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:travel_app/config/app_data.dart';
-import 'package:travel_app/models/location.dart';
+import 'package:travel_app/config/styles.dart';
+import 'package:travel_app/pages/home_page.dart';
 
-import 'location_list.dart';
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
-class Login extends StatelessWidget {
-  final List<Location> locationList = AppData.fetchAll();
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false, //avoid overlap with keyboard
-      backgroundColor: Colors.blueGrey,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            height: 200,
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage("assets/images/header.png"))),
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: const Text("Hello!!\nWelcome",
-                          style: TextStyle(
-                              fontSize: 36,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold)),
-                    )),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    child: const TextField(
-                      style: TextStyle(color: Colors.white),
-                      autofocus: false,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          labelText: 'Username',
-                          hintText: 'Enter username here',
-                          hintStyle: TextStyle(color: Colors.white),
-                          labelStyle: TextStyle(color: Colors.white),
-                          contentPadding: EdgeInsets.all(10)),
-                    ),
+      backgroundColor: Colors.white,
+      body: body(),
+    );
+  }
+
+  Widget body(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        const SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
+                child: Text("Hello!!\nWelcome",
+                    style: TextStyle(
+                        fontSize: 36,
+                        color: Styles.baseTextColor,
+                        fontWeight: FontWeight.bold)),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.only(left: 16.0, right: 16.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.grey),
+                ),
+                padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+                child: const TextField(
+                  obscureText: true,
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.person),
+                    border: InputBorder.none,
+                    hintText: 'Enter username',
+                    contentPadding: EdgeInsets.all(12),
+                    hintStyle: TextStyle(color: Colors.black45),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    child: const TextField(
-                      style: TextStyle(color: Colors.white),
-                      autofocus: false,
-                      obscureText: true,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          labelText: 'Password',
-                          hintText: 'Enter password here',
-                          hintStyle: TextStyle(color: Colors.white),
-                          labelStyle: TextStyle(color: Colors.white),
-                          contentPadding: EdgeInsets.all(10)),
-                    ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.only(left: 16.0, right: 16.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.grey),
+                ),
+                padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+                child: const TextField(
+                  obscureText: true,
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.password),
+                    border: InputBorder.none,
+                    hintText: 'Enter Password',
+                    contentPadding: EdgeInsets.all(12),
+                    hintStyle: TextStyle(color: Colors.black45),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Center(
+                child: Text(
+                  "Forgot password?",
+                  style: TextStyle(color: Colors.black87, fontSize: 18),
                 ),
-                const Center(
-                  child: Text(
-                    "Forgot password?",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                    height: 50,
-                    margin: const EdgeInsets.symmetric(horizontal: 60),
-                    child: Center(
-                      child: RaisedButton(
-                        color: Colors.black54,
-                        child: const Text(
-                          "Login",
-                          style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.only(left: 16.0, right: 16.0),
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                      MaterialStateProperty.all(Styles.baseColor),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      LocationList(this.locationList)));
-                        },
+                      )),
+                  onPressed: () async {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 16.0,
+                      horizontal: 8.0,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
-                    )),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Center(
-                  child: Text(
-                    "Create new account",
-                    style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              const Center(
+                child: Text(
+                  "Create new account",
+                  style: TextStyle(color: Colors.black87, fontSize: 18),
+                ),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }

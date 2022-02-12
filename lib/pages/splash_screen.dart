@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/login_page.dart';
 
 import 'home_page.dart';
 
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(milliseconds: 2000),
           () async {
         timer.cancel();
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
       },
     );
   }
