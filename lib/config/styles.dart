@@ -7,6 +7,13 @@ class Styles {
   static final Color _textColorDefault = _hexToColor('666666');
   static final Color baseColor = Colors.deepOrange.withOpacity(0.7);
   static final Color baseTextColor = Colors.black87.withOpacity(0.7);
+  static final List<Color> colors = [
+    const Color(0xff71b4fb),
+    const Color(0xfffa8c73),
+    const Color(0xff8873f4),
+    const Color(0xff02c39a),
+    const Color(0xff70a288),
+  ];
   static const String _fontNameDefault = 'Muli';
   static const navBarTitle = TextStyle(
     fontFamily: _fontNameDefault,
