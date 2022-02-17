@@ -10,7 +10,7 @@ class LocationDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(location.name),
+          title: Text(location.Name),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -23,9 +23,9 @@ class LocationDetail extends StatelessWidget {
 
   List<Widget> _getLocations(BuildContext context, Location location) {
     List<Widget> dataList = [];
-    dataList.add(_renderCover(location.url, 100.0));
+    dataList.add(_renderCover(location.URL, 100.0));
     dataList.addAll(_getFacts(context, location));
-    dataList.add(_getTitle('Popular places of ' + location.name));
+    dataList.add(_getTitle('Popular places of ' + location.Name));
     dataList.addAll(_getPlaces(context, location));
     return dataList;
   }
@@ -33,9 +33,9 @@ class LocationDetail extends StatelessWidget {
   //returns location fact list
   List<Widget> _getFacts(BuildContext context, Location location) {
     List<Widget> factList = [];
-    for (int start = 0; start < location.facts.length; start++) {
-      factList.add(_getTitle(location.facts[start].title));
-      factList.add(_getText(location.facts[start].text));
+    for (int start = 0; start < location.Facts.length; start++) {
+      factList.add(_getTitle(location.Facts[start].title));
+      factList.add(_getText(location.Facts[start].text));
     }
     return factList;
   }
@@ -43,9 +43,9 @@ class LocationDetail extends StatelessWidget {
   //returns location places list
   List<Widget> _getPlaces(BuildContext context, Location location) {
     List<Widget> factList = [];
-    for (int start = 0; start < location.places.length; start++) {
-      factList.add(_getPlaceTitle(location.places[start].place));
-      factList.add(_renderPlaceCover(location.places[start].url, 84));
+    for (int start = 0; start < location.Places.length; start++) {
+      factList.add(_getPlaceTitle(location.Places[start].place));
+      factList.add(_renderPlaceCover(location.Places[start].url, 84));
     }
     return factList;
   }
