@@ -61,7 +61,7 @@ class LocationList extends StatelessWidget {
     return Container(
       constraints: BoxConstraints.tightFor(width: 100),
       child: Image.network(
-        location.url,
+        location.URL,
         fit: BoxFit.fitWidth,
       ),
     );
@@ -69,6 +69,6 @@ class LocationList extends StatelessWidget {
 
   //List item title generator
   Widget _itemTitle(Location location) {
-    return Text('${location.name}', style: Styles.textDefault);
+    return Text('${location.Name}', style: Styles.textDefault);
   }
 }
