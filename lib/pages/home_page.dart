@@ -19,30 +19,30 @@ class _HomePageState extends State<HomePage> {
   final List<Category> _categoryList = AppData.fetchCategory();
   final List<Location> _locationList = AppData.fetchAll();
   final List<BottomNavigationBarItem> _bottomNavWidgets = [
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(
           Icons.home,
         ),
-        backgroundColor: Colors.white.withOpacity(0.9),
+        backgroundColor: Colors.blueGrey,
         label: "Home"),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.person,
       ),
-      backgroundColor: Colors.white.withOpacity(0.9),
+      backgroundColor: Colors.blueGrey,
       label: "Profile",
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(
           Icons.message,
         ),
-        backgroundColor: Colors.white.withOpacity(0.9),
+        backgroundColor: Colors.blueGrey,
         label: "Message"),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(
           Icons.bookmark,
         ),
-        backgroundColor: Colors.white.withOpacity(0.9),
+        backgroundColor: Colors.blueGrey,
         label: "Saved"),
   ];
 
