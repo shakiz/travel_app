@@ -9,8 +9,8 @@ class CategoryItemTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 96,
-      height: 96,
+      width: 80,
+      height: 80,
       alignment: Alignment.center,
       margin: const EdgeInsets.only(right: 20, bottom: 20, top: 10),
       decoration: BoxDecoration(
@@ -27,9 +27,11 @@ class CategoryItemTile extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 8),
+          Image.asset(category.CategoryIcon, height: 30, width: 30, color: Colors.white,),
+          const SizedBox(height: 8),
           Text(category.CategoryName, style: const TextStyle(color: Colors.white, fontSize: 16),),
           const SizedBox(height: 8),
-          Image.asset(category.CategoryIcon, height: 34, width: 34, color: Colors.white,)
         ],
       ),
     );

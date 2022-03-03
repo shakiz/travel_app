@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/config/app_data.dart';
@@ -18,51 +19,54 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final List<Category> _categoryList = AppData.fetchCategory();
   final List<Location> _locationList = AppData.fetchAll();
-  final List<BottomNavigationBarItem> _bottomNavWidgets = [
-    const BottomNavigationBarItem(
-        icon: Icon(
-          Icons.home,
-        ),
-        backgroundColor: Colors.blueGrey,
-        label: "Home"),
-    const BottomNavigationBarItem(
-      icon: Icon(
-        Icons.person,
-      ),
-      backgroundColor: Colors.blueGrey,
-      label: "Profile",
-    ),
-    const BottomNavigationBarItem(
-        icon: Icon(
-          Icons.message,
-        ),
-        backgroundColor: Colors.blueGrey,
-        label: "Message"),
-    const BottomNavigationBarItem(
-        icon: Icon(
-          Icons.bookmark,
-        ),
-        backgroundColor: Colors.blueGrey,
-        label: "Saved"),
-  ];
+  late PageController _pageController;
+  final List<bool> _filterSelection = [false, false, false, false];
 
   int _currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: _bottomNavWidgets,
-          currentIndex: _currentIndex,
-          onTap: _onItemTapped,
-          elevation: 4,
-          type: BottomNavigationBarType.shifting,
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: _currentIndex,
+          showElevation: true, // use this to remove appBar's elevation
+          onItemSelected: (index) => setState(() {
+            _currentIndex = index;
+            _pageController.animateToPage(index,
+                duration: Duration(milliseconds: 300), curve: Curves.ease);
+          }),
+          items: [
+            BottomNavyBarItem(
+              icon: Icon(Icons.apps),
+              title: Text('Home'),
+              activeColor: Colors.red,
+            ),
+            BottomNavyBarItem(
+                icon: Icon(Icons.people),
+                title: Text('Users'),
+                activeColor: Colors.purpleAccent),
+            BottomNavyBarItem(
+                icon: Icon(Icons.message),
+                title: Text('Messages'),
+                activeColor: Colors.pink),
+            BottomNavyBarItem(
+                icon: Icon(Icons.settings),
+                title: Text('Settings'),
+                activeColor: Colors.blue),
+          ],
         ),
         body: body(),
       ),
@@ -87,18 +91,20 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.topLeft,
                   child: Image.asset(
                     "assets/icons/menu.png",
-                    height: 42,
-                    width: 42,
+                    height: 40,
+                    width: 40,
                     color: Colors.black87.withOpacity(0.7),
                   ),
                 ),
                 Container(
-                  alignment: Alignment.topRight,
+                  alignment: Alignment.center,
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(21)),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
                       border: Border.all(color: Colors.black12),
                       color: Colors.brown.withOpacity(0.1)),
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(4),
                   child: Image.asset(
                     "assets/icons/user.png",
                     height: 24,
@@ -168,7 +174,7 @@ class _HomePageState extends State<HomePage> {
               height: 16,
             ),
             SizedBox(
-              height: 120,
+              height: 112,
               width: 120,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -181,16 +187,115 @@ class _HomePageState extends State<HomePage> {
                       duration: Duration(milliseconds: 600 * index),
                       builder:
                           (BuildContext context, double value, Widget? child) {
-                            return Transform.scale(
-                              scale: value,
-                              child: CategoryItemTile(_categoryList[index])
-                            );
-                          },
+                        return Transform.scale(
+                            scale: value,
+                            child: CategoryItemTile(_categoryList[index]));
+                      },
                     );
                   }),
             ),
             const SizedBox(
-              height: 16,
+              height: 0,
+            ),
+            Wrap(
+              children: [
+                ChoiceChip(
+                  label: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(
+                        "All",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: _filterSelection[0] ? Colors.white : Colors.black87,
+                            fontSize: 16),
+                      )),
+                  selected: _filterSelection[0],
+                  selectedColor: Colors.greenAccent,
+                  onSelected: (isSelected) {
+                    setState(() {
+                      _filterSelection[0] = true;
+                      _filterSelection[1] = false;
+                      _filterSelection[2] = false;
+                      _filterSelection[3] = false;
+                    });
+                  },
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                ChoiceChip(
+                  label: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(
+                        "Popular",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: _filterSelection[1] ? Colors.white : Colors.black87,
+                            fontSize: 16),
+                      )),
+                  selected: _filterSelection[1],
+                  selectedColor: Colors.greenAccent,
+                  onSelected: (isSelected) {
+                    setState(() {
+                      _filterSelection[0] = false;
+                      _filterSelection[1] = true;
+                      _filterSelection[2] = false;
+                      _filterSelection[3] = false;
+                    });
+                  },
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                ChoiceChip(
+                  label: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(
+                        "New",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: _filterSelection[2] ? Colors.white : Colors.black87,
+                            fontSize: 16),
+                      )),
+                  selected: _filterSelection[2],
+                  selectedColor: Colors.greenAccent,
+                  onSelected: (isSelected) {
+                    setState(() {
+                      _filterSelection[0] = false;
+                      _filterSelection[1] = false;
+                      _filterSelection[2] = true;
+                      _filterSelection[3] = false;
+                    });
+                  },
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                ChoiceChip(
+                  label: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(
+                        "Top 10",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: _filterSelection[3] ? Colors.white : Colors.black87,
+                            fontSize: 16),
+                      )),
+                  selected: _filterSelection[3],
+                  selectedColor: Colors.greenAccent,
+                  onSelected: (isSelected) {
+                    setState(() {
+                      _filterSelection[0] = false;
+                      _filterSelection[1] = false;
+                      _filterSelection[2] = false;
+                      _filterSelection[3] = true;
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 8,
             ),
             SizedBox(
               height: 328,
@@ -198,8 +303,9 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _locationList.length,
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index){
-                  return LocationItemTile(_locationList[index], MediaQuery.of(context).size.width-100);
+                itemBuilder: (BuildContext context, int index) {
+                  return LocationItemTile(_locationList[index],
+                      MediaQuery.of(context).size.width - 100);
                 }, //this builder method wont take any params because its a callback
               ),
             ),
