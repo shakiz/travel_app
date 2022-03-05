@@ -46,25 +46,25 @@ class _HomePageState extends State<HomePage> {
           onItemSelected: (index) => setState(() {
             _currentIndex = index;
             _pageController.animateToPage(index,
-                duration: Duration(milliseconds: 300), curve: Curves.ease);
+                duration: const Duration(milliseconds: 300), curve: Curves.ease);
           }),
           items: [
             BottomNavyBarItem(
-              icon: Icon(Icons.apps),
-              title: Text('Home'),
+              icon: const Icon(Icons.home_filled),
+              title: const Text('Home'),
               activeColor: Colors.red,
             ),
             BottomNavyBarItem(
-                icon: Icon(Icons.people),
-                title: Text('Users'),
+                icon: const Icon(Icons.people),
+                title: const Text('Profile'),
                 activeColor: Colors.purpleAccent),
             BottomNavyBarItem(
-                icon: Icon(Icons.message),
-                title: Text('Messages'),
+                icon: const Icon(Icons.message),
+                title: const Text('Community'),
                 activeColor: Colors.pink),
             BottomNavyBarItem(
-                icon: Icon(Icons.settings),
-                title: Text('Settings'),
+                icon: const Icon(Icons.bookmark),
+                title: const Text('Saved'),
                 activeColor: Colors.blue),
           ],
         ),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 16,
+              height: 4,
             ),
             Stack(
               children: [
@@ -140,31 +140,24 @@ class _HomePageState extends State<HomePage> {
                 Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    decoration: BoxDecoration(boxShadow: [
+                    height: 42,
+                    width: 42,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                        color: Colors.deepOrangeAccent,
+                        boxShadow: [
                       BoxShadow(
                           color: Colors.grey[500]!,
                           offset: const Offset(4, 4),
                           blurRadius: 15,
                           spreadRadius: 1),
-                      const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-4, -4),
-                          blurRadius: 15,
-                          spreadRadius: 1),
                     ]),
-                    height: 42,
-                    width: 52,
-                    child: ElevatedButton(
-                      onPressed: () async {},
-                      child: Image.asset(
-                        "assets/icons/search.png",
-                        color: Colors.white,
-                        width: 24,
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Styles.baseColor),
-                      ),
+                    child: Image.asset(
+                      "assets/icons/search.png",
+                      color: Colors.white,
+                      width: 24,
+                      height: 24,
                     ),
                   ),
                 ),
@@ -184,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                     return TweenAnimationBuilder(
                       tween: Tween<double>(begin: 0, end: 1),
                       curve: Curves.elasticOut,
-                      duration: Duration(milliseconds: 600 * index),
+                      duration: Duration(milliseconds: 1000 * index),
                       builder:
                           (BuildContext context, double value, Widget? child) {
                         return Transform.scale(
@@ -209,8 +202,10 @@ class _HomePageState extends State<HomePage> {
                             color: _filterSelection[0] ? Colors.white : Colors.black87,
                             fontSize: 16),
                       )),
+                  backgroundColor: Colors.transparent,
                   selected: _filterSelection[0],
-                  selectedColor: Colors.greenAccent,
+                  elevation: _filterSelection[0] ? 4 : 0,
+                  selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
                       _filterSelection[0] = true;
@@ -233,8 +228,10 @@ class _HomePageState extends State<HomePage> {
                             color: _filterSelection[1] ? Colors.white : Colors.black87,
                             fontSize: 16),
                       )),
+                  backgroundColor: Colors.transparent,
                   selected: _filterSelection[1],
-                  selectedColor: Colors.greenAccent,
+                  elevation: _filterSelection[1] ? 4 : 0,
+                  selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
                       _filterSelection[0] = false;
@@ -257,8 +254,10 @@ class _HomePageState extends State<HomePage> {
                             color: _filterSelection[2] ? Colors.white : Colors.black87,
                             fontSize: 16),
                       )),
+                  backgroundColor: Colors.transparent,
                   selected: _filterSelection[2],
-                  selectedColor: Colors.greenAccent,
+                  elevation: _filterSelection[2] ? 4 : 0,
+                  selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
                       _filterSelection[0] = false;
@@ -281,8 +280,10 @@ class _HomePageState extends State<HomePage> {
                             color: _filterSelection[3] ? Colors.white : Colors.black87,
                             fontSize: 16),
                       )),
+                  backgroundColor: Colors.transparent,
                   selected: _filterSelection[3],
-                  selectedColor: Colors.greenAccent,
+                  elevation: _filterSelection[3] ? 4 : 0,
+                  selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
                       _filterSelection[0] = false;

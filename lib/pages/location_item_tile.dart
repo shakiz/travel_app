@@ -20,8 +20,8 @@ class LocationItemTile extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                   color: Colors.grey[500]!,
-                  offset: const Offset(4, 4),
-                  blurRadius: 8,
+                  offset: const Offset(2, 2),
+                  blurRadius: 4,
                   spreadRadius: 1),
             ]),
         child: Stack(
