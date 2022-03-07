@@ -11,7 +11,8 @@ class AppData {
         Name: 'Arashiyama Bamboo Grove',
       ExactLocation: 'Japan, Asia',
         URL:
-            'https://www.jrailpass.com/blog/wp-content/uploads/2016/05/arashiyama-bamboo-grove-kyoto-e1466611768221.jpg',
+            // 'https://www.jrailpass.com/blog/wp-content/uploads/2016/05/arashiyama-bamboo-grove-kyoto-e1466611768221.jpg',
+        'assets/places/place_1.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -44,7 +45,8 @@ class AppData {
         Name: 'Mount Fuji',
   ExactLocation: 'Japan, Asia',
         URL:
-            'https://www.planetware.com/photos-large/JPN/japan-mt-fuji-and-cherry-blossoms.jpg',
+            // 'https://www.planetware.com/photos-large/JPN/japan-mt-fuji-and-cherry-blossoms.jpg',
+        'assets/places/place_2.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -77,7 +79,8 @@ class AppData {
         Name: 'Kiyomizu-dera',
         ExactLocation: 'Japan, Asia',
         URL:
-            'https://plingthinks.com/wp-content/uploads/2016/09/kiyomizu-dera-autumn-colors-kyoto-temple-e1556013806570.jpg',
+            // 'https://plingthinks.com/wp-content/uploads/2016/09/kiyomizu-dera-autumn-colors-kyoto-temple-e1556013806570.jpg',
+        'assets/places/place_3.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -109,7 +112,8 @@ class AppData {
         Name: 'Kinkaku-ji',
         ExactLocation: 'Japan, Asia',
         URL:
-            'https://world-travel-guy-inboundhorizonsi.netdna-ssl.com/wp-content/uploads/2020/04/DSCF5510.jpg',
+            // 'https://world-travel-guy-inboundhorizonsi.netdna-ssl.com/wp-content/uploads/2020/04/DSCF5510.jpg',
+        'assets/places/place_4.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -142,7 +146,8 @@ class AppData {
         Name: 'Odaiba',
         ExactLocation: 'Japan, Asia',
         URL:
-            'https://dailyartfixx.com/wp-content/uploads/2009/08/fuji-tv-building-odaiba.jpg',
+            // 'https://dailyartfixx.com/wp-content/uploads/2009/08/fuji-tv-building-odaiba.jpg',
+        'assets/places/place_5.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',

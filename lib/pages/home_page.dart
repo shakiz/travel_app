@@ -307,18 +307,12 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context, int index) {
                   return LocationItemTile(_locationList[index],
                       MediaQuery.of(context).size.width - 100);
-                }, //this builder method wont take any params because its a callback
+                },
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
   }
 }

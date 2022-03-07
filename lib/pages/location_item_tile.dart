@@ -58,13 +58,19 @@ class LocationItemTile extends StatelessWidget {
 
   //List item thumbnail generator
   Widget _itemThumbnail(Location location) {
-    return FadeInImage.assetNetwork(
-      placeholder: 'assets/images/loading.gif',
-      image: location.URL,
+    return Image.asset(
+      location.URL,
       height: 328,
       width: width,
       fit: BoxFit.fill,
     );
+    // return FadeInImage.assetNetwork(
+    //   placeholder: 'assets/images/loading.gif',
+    //   image: location.URL,
+    //   height: 328,
+    //   width: width,
+    //   fit: BoxFit.fill,
+    // );
   }
 
   //List item title generator
