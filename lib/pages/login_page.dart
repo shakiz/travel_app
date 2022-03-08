@@ -1,149 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/config/styles.dart';
-import 'package:travel_app/pages/home_page.dart';
+import 'package:lottie/lottie.dart';
+import 'package:travel_app/pages/widgets/login_bottom_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage>
+    with TickerProviderStateMixin {
+  late AnimationController _coffeeController;
+  bool copAnimated = false;
+  bool animateCafeText = false;
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false, //avoid overlap with keyboard
-      backgroundColor: Colors.white,
-      body: body(),
-    );
+  void initState() {
+    super.initState();
+    _coffeeController = AnimationController(vsync: this);
+    _coffeeController.addListener(() {
+      if (_coffeeController.value > 0.5) {
+        _coffeeController.stop();
+        copAnimated = true;
+        setState(() {});
+        Future.delayed(const Duration(seconds: 1), () {
+          animateCafeText = true;
+          setState(() {});
+        });
+      }
+    });
   }
 
-  Widget body(){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+  @override
+  void dispose() {
+    super.dispose();
+    _coffeeController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.blueGrey.withOpacity(0.8),
+        body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.all(8),
-                margin: const EdgeInsets.all(8),
-                child: Text("Hello!!\nWelcome",
-                    style: TextStyle(
-                        fontSize: 36,
-                        color: Styles.baseTextColor,
-                        fontWeight: FontWeight.bold)),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.only(left: 16.0, right: 16.0),
-                alignment: Alignment.center,
+            children: [
+              // White Container top half
+              AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                height: copAnimated ? screenHeight / 2.25 : screenHeight,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.grey),
-                ),
-                padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-                child: const TextField(
-                  obscureText: true,
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.person),
-                    border: InputBorder.none,
-                    hintText: 'Enter username',
-                    contentPadding: EdgeInsets.all(12),
-                    hintStyle: TextStyle(color: Colors.black45),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(copAnimated ? 40.0 : 0.0),
+                    bottomRight: Radius.circular(copAnimated ? 40.0 : 0.0),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.only(left: 16.0, right: 16.0),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.grey),
-                ),
-                padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-                child: const TextField(
-                  obscureText: true,
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.password),
-                    border: InputBorder.none,
-                    hintText: 'Enter Password',
-                    contentPadding: EdgeInsets.all(12),
-                    hintStyle: TextStyle(color: Colors.black45),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Center(
-                child: Text(
-                  "Forgot password?",
-                  style: TextStyle(color: Colors.black87, fontSize: 18),
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.only(left: 16.0, right: 16.0),
-                alignment: Alignment.center,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                      MaterialStateProperty.all(Styles.baseColor),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      )),
-                  onPressed: () async {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 16.0,
-                      horizontal: 8.0,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Visibility(
+                      visible: !copAnimated,
+                      child: Lottie.asset(
+                        'assets/images/travel_splash_anim.json',
+                        controller: _coffeeController,
+                        onLoaded: (composition) {
+                          _coffeeController
+                            ..duration = composition.duration
+                            ..forward();
+                        },
                       ),
                     ),
-                  ),
+                    Visibility(
+                      visible: copAnimated,
+                      child: Image.asset(
+                        'assets/images/splash.png',
+                        height: 160.0,
+                        width: 160.0,
+                      ),
+                    ),
+                    Center(
+                      child: AnimatedOpacity(
+                        opacity: animateCafeText ? 1 : 0,
+                        duration: const Duration(seconds: 1),
+                        child: Text(
+                          'T R A V E L O',
+                          style: TextStyle(fontSize: 50.0, color: Colors.black87.withOpacity(0.3)),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 12,
-              ),
-              const Center(
-                child: Text(
-                  "Create new account",
-                  style: TextStyle(color: Colors.black87, fontSize: 18),
-                ),
-              )
+              // Text bottom part
+              Visibility(
+                  visible: copAnimated, child: const LoginBottomWidget()),
             ],
           ),
-        )
-      ],
+        ),
+      ),
     );
   }
 }
