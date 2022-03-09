@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/models/location.dart';
 
-import 'location_details.dart';
+import '../location_details.dart';
 
 class LocationItemTile extends StatelessWidget {
   Location location;
@@ -12,42 +12,47 @@ class LocationItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.only(right: 20, top: 8, bottom: 16),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.white.withOpacity(0.9),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey[500]!,
-                  offset: const Offset(2, 2),
-                  blurRadius: 4,
-                  spreadRadius: 1),
-            ]),
-        child: Stack(
-          children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: _itemThumbnail(location)),
-            Positioned(
-              bottom: 44,
-              left: 20,
-              right: 20,
-              child: _itemTitle(location),
-            ),
-            Positioned(
-              bottom: 20,
-              left: 20,
-              right: 20,
-              child: _itemLocation(location),
-            ),
-            const Positioned(
-              bottom: 20,
-              right: 20,
-              child: Icon(Icons.star_border, color: Colors.white,),
-            )
-          ],
-        ));
+    return InkWell(
+      onTap: () async {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => LocationDetail(location)));
+      },
+      child: Container(
+          margin: const EdgeInsets.only(right: 20, top: 8, bottom: 16),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white.withOpacity(0.9),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey[500]!,
+                    offset: const Offset(2, 2),
+                    blurRadius: 4,
+                    spreadRadius: 1),
+              ]),
+          child: Stack(
+            children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: _itemThumbnail(location)),
+              Positioned(
+                bottom: 44,
+                left: 20,
+                right: 20,
+                child: _itemTitle(location),
+              ),
+              Positioned(
+                bottom: 20,
+                left: 20,
+                right: 20,
+                child: _itemLocation(location),
+              ),
+              const Positioned(
+                bottom: 20,
+                right: 20,
+                child: Icon(Icons.star_border, color: Colors.white,),
+              )
+            ],
+          )),
+    );
   }
 
   //list item click listener
