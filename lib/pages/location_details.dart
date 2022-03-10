@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/models/location.dart';
+import 'package:travel_app/pages/item_tiles/popular_places_item_tile.dart';
 
 class LocationDetail extends StatefulWidget {
   Location location;
+
   LocationDetail(this.location, {Key? key}) : super(key: key);
 
   @override
@@ -63,7 +65,8 @@ class _LocationDetailState extends State<LocationDetail> {
                       duration: const Duration(seconds: 2),
                       curve: Curves.fastOutSlowIn,
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
                         child: Image.asset(
                           location.URL,
                           fit: BoxFit.fill,
@@ -85,18 +88,27 @@ class _LocationDetailState extends State<LocationDetail> {
 
   //returns location places list
   Widget _getPlaces(BuildContext context, Location location) {
-    return ListView.builder(
-        itemCount: location.Places.length,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return Column(
-            children: [
-              _getPlaceTitle(location.Places[index].place),
-              _renderPlaceCover(location.Places[index].url, 84)
-            ],
-          );
-        });
+    return SizedBox(
+      height: 160,
+      width: 160,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: location.Places.length,
+          shrinkWrap: true,
+          padding: const EdgeInsets.only(left: 20),
+          itemBuilder: (BuildContext context, int index) {
+            return TweenAnimationBuilder(
+              tween: Tween<double>(begin: 0, end: 1),
+              curve: Curves.elasticOut,
+              duration: Duration(milliseconds: 1000 * index),
+              builder: (BuildContext context, double value, Widget? child) {
+                return Transform.scale(
+                    scale: value,
+                    child: PopularPlacesItemTile(location.Places[index]));
+              },
+            );
+          }),
+    );
   }
 
   //returns location fact list
@@ -114,7 +126,6 @@ class _LocationDetailState extends State<LocationDetail> {
           );
         });
   }
-
 
   //returns text of a location
   Widget _getText(String text) {
@@ -164,4 +175,3 @@ class _LocationDetailState extends State<LocationDetail> {
     );
   }
 }
-

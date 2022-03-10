@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage>
     var screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueGrey.withOpacity(0.8),
+        backgroundColor: Colors.teal,
         body: SingleChildScrollView(
           child: Column(
             children: [

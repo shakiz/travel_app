@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/config/app_data.dart';
 import 'package:travel_app/config/styles.dart';
 import 'package:travel_app/models/category.dart';
+import 'package:travel_app/models/group.dart';
 import 'package:travel_app/models/location.dart';
+import 'package:travel_app/pages/item_tiles/group_item_tile.dart';
 import 'package:travel_app/pages/item_tiles/location_item_tile.dart';
+import 'package:travel_app/pages/widgets/search_widget.dart';
 
 import 'item_tiles/category_item_tile.dart';
 
@@ -17,8 +20,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final FocusNode _focusNode = FocusNode();
   final List<Category> _categoryList = AppData.fetchCategory();
   final List<Location> _locationList = AppData.fetchAll();
+  final List<Group> _groupList = AppData.fetchGroupInfo();
   late PageController _pageController;
   final List<bool> _filterSelection = [false, false, false, false];
 
@@ -34,6 +39,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     super.dispose();
     _pageController.dispose();
+    _focusNode.unfocus();
   }
 
   @override
@@ -46,7 +52,8 @@ class _HomePageState extends State<HomePage> {
           onItemSelected: (index) => setState(() {
             _currentIndex = index;
             _pageController.animateToPage(index,
-                duration: const Duration(milliseconds: 300), curve: Curves.ease);
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.ease);
           }),
           items: [
             BottomNavyBarItem(
@@ -91,8 +98,8 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.topLeft,
                   child: Image.asset(
                     "assets/icons/menu.png",
-                    height: 40,
-                    width: 40,
+                    height: 32,
+                    width: 32,
                     color: Colors.black87.withOpacity(0.7),
                   ),
                 ),
@@ -116,53 +123,27 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 16,
             ),
-            Text(
-              "Where you wanna go?",
-              style: TextStyle(
-                  color: Styles.baseTextColor,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Stack(
-              children: [
-                const Align(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Search your destination',
-                        fillColor: Colors.white),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Hi, Pablo',
+                    style: TextStyle(color: Color(0xFF192733), fontSize: 16),
                   ),
-                  alignment: Alignment.centerLeft,
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    height: 42,
-                    width: 42,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                        color: Colors.deepOrangeAccent,
-                        boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey[500]!,
-                          offset: const Offset(4, 4),
-                          blurRadius: 15,
-                          spreadRadius: 1),
-                    ]),
-                    child: Image.asset(
-                      "assets/icons/search.png",
-                      color: Colors.white,
-                      width: 24,
-                      height: 24,
+                  Text(
+                    "Good Morning",
+                    style: TextStyle(
+                      color: Color(0xFF192733),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
-                ),
-              ],
+                ]),
+            const SizedBox(
+              height: 16,
             ),
+            const SearchWidget(),
             const SizedBox(
               height: 16,
             ),
@@ -199,7 +180,9 @@ class _HomePageState extends State<HomePage> {
                         "All",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: _filterSelection[0] ? Colors.white : Colors.black87,
+                            color: _filterSelection[0]
+                                ? Colors.white
+                                : Colors.black87,
                             fontSize: 16),
                       )),
                   backgroundColor: Colors.transparent,
@@ -225,7 +208,9 @@ class _HomePageState extends State<HomePage> {
                         "Popular",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: _filterSelection[1] ? Colors.white : Colors.black87,
+                            color: _filterSelection[1]
+                                ? Colors.white
+                                : Colors.black87,
                             fontSize: 16),
                       )),
                   backgroundColor: Colors.transparent,
@@ -251,7 +236,9 @@ class _HomePageState extends State<HomePage> {
                         "New",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: _filterSelection[2] ? Colors.white : Colors.black87,
+                            color: _filterSelection[2]
+                                ? Colors.white
+                                : Colors.black87,
                             fontSize: 16),
                       )),
                   backgroundColor: Colors.transparent,
@@ -277,7 +264,9 @@ class _HomePageState extends State<HomePage> {
                         "Top 10",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: _filterSelection[3] ? Colors.white : Colors.black87,
+                            color: _filterSelection[3]
+                                ? Colors.white
+                                : Colors.black87,
                             fontSize: 16),
                       )),
                   backgroundColor: Colors.transparent,
@@ -299,7 +288,7 @@ class _HomePageState extends State<HomePage> {
               height: 8,
             ),
             SizedBox(
-              height: 328,
+              height: 224,
               child: ListView.builder(
                 itemCount: _locationList.length,
                 shrinkWrap: true,
@@ -307,6 +296,44 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context, int index) {
                   return LocationItemTile(_locationList[index],
                       MediaQuery.of(context).size.width - 100);
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Travel Groups",
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 16
+                  ),
+                ),
+                Text(
+                  "Show More",
+                  style: TextStyle(
+                      color: Colors.black87.withOpacity(0.5),
+                      fontSize: 14
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+              height: 120,
+              child: ListView.builder(
+                itemCount: _groupList.length,
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 4),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return GroupItemTile(_groupList[index],
+                      MediaQuery.of(context).size.width - 160);
                 },
               ),
             ),
