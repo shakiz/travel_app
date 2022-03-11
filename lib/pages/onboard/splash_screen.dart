@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:travel_app/pages/login_page.dart';
+import 'package:travel_app/pages/onboard/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -36,6 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: body(),
     );
   }

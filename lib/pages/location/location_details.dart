@@ -27,7 +27,7 @@ class _LocationDetailState extends State<LocationDetail> {
       child: Scaffold(
           appBar: AppBar(
             title: Text(
-              location != null ? location.Name : "Food Title",
+              location != null ? location.Name : "Location Name",
               style: const TextStyle(color: Colors.black),
             ),
             backgroundColor: Colors.transparent,
@@ -100,7 +100,7 @@ class _LocationDetailState extends State<LocationDetail> {
             return TweenAnimationBuilder(
               tween: Tween<double>(begin: 0, end: 1),
               curve: Curves.elasticOut,
-              duration: Duration(milliseconds: 1000 * index),
+              duration: Duration(milliseconds: 2000 * index),
               builder: (BuildContext context, double value, Widget? child) {
                 return Transform.scale(
                     scale: value,
@@ -130,9 +130,11 @@ class _LocationDetailState extends State<LocationDetail> {
   //returns text of a location
   Widget _getText(String text) {
     return Container(
+      alignment: Alignment.centerLeft,
       padding: const EdgeInsets.fromLTRB(20, 0, 10, 15),
       child: Text(
         text,
+        textAlign: TextAlign.left,
         style: const TextStyle(fontSize: 18, color: Colors.black54),
       ),
     );
@@ -141,36 +143,13 @@ class _LocationDetailState extends State<LocationDetail> {
   //returns title of a location
   Widget _getTitle(String title) {
     return Container(
+      alignment: Alignment.centerLeft,
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 15),
       child: Text(
         title,
         textAlign: TextAlign.left,
         style: const TextStyle(
-            fontSize: 25, fontWeight: FontWeight.bold, color: Colors.blueGrey),
-      ),
-    );
-  }
-
-  //returns the popular place title of a location
-  Widget _getPlaceTitle(String title) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(20, 8, 8, 15),
-      child: Text(
-        title,
-        textAlign: TextAlign.left,
-        style: const TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blueGrey),
-      ),
-    );
-  }
-
-  //returns popular place image
-  Widget _renderPlaceCover(String url, double height) {
-    return Container(
-      constraints: BoxConstraints.tightFor(height: height),
-      child: Image.network(
-        url,
-        fit: BoxFit.fitWidth,
+            fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blueGrey),
       ),
     );
   }

@@ -10,7 +10,7 @@ import 'package:travel_app/pages/item_tiles/group_item_tile.dart';
 import 'package:travel_app/pages/item_tiles/location_item_tile.dart';
 import 'package:travel_app/pages/widgets/search_widget.dart';
 
-import 'item_tiles/category_item_tile.dart';
+import '../item_tiles/category_item_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
