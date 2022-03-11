@@ -186,8 +186,10 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 16),
                       )),
                   backgroundColor: Colors.transparent,
+                  shadowColor: Colors.deepOrangeAccent,
+                  selectedShadowColor: Colors.deepOrangeAccent,
                   selected: _filterSelection[0],
-                  elevation: _filterSelection[0] ? 4 : 0,
+                  elevation: _filterSelection[0] ? 2 : 0,
                   selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
@@ -215,7 +217,9 @@ class _HomePageState extends State<HomePage> {
                       )),
                   backgroundColor: Colors.transparent,
                   selected: _filterSelection[1],
-                  elevation: _filterSelection[1] ? 4 : 0,
+                  shadowColor: Colors.deepOrangeAccent,
+                  selectedShadowColor: Colors.deepOrangeAccent,
+                  elevation: _filterSelection[1] ? 2 : 0,
                   selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
@@ -243,7 +247,9 @@ class _HomePageState extends State<HomePage> {
                       )),
                   backgroundColor: Colors.transparent,
                   selected: _filterSelection[2],
-                  elevation: _filterSelection[2] ? 4 : 0,
+                  elevation: _filterSelection[2] ? 2 : 0,
+                  shadowColor: Colors.deepOrangeAccent,
+                  selectedShadowColor: Colors.deepOrangeAccent,
                   selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
@@ -271,7 +277,9 @@ class _HomePageState extends State<HomePage> {
                       )),
                   backgroundColor: Colors.transparent,
                   selected: _filterSelection[3],
-                  elevation: _filterSelection[3] ? 4 : 0,
+                  shadowColor: Colors.deepOrangeAccent,
+                  selectedShadowColor: Colors.deepOrangeAccent,
+                  elevation: _filterSelection[3] ? 2 : 0,
                   selectedColor: Colors.deepOrangeAccent.withOpacity(0.7),
                   onSelected: (isSelected) {
                     setState(() {
@@ -325,15 +333,14 @@ class _HomePageState extends State<HomePage> {
               height: 16,
             ),
             SizedBox(
-              height: 120,
+              height: 156,
               child: ListView.builder(
                 itemCount: _groupList.length,
                 shrinkWrap: true,
-                padding: const EdgeInsets.only(left: 4),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return GroupItemTile(_groupList[index],
-                      MediaQuery.of(context).size.width - 160);
+                      MediaQuery.of(context).size.width - 120);
                 },
               ),
             ),

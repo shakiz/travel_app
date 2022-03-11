@@ -1,5 +1,6 @@
 import 'package:travel_app/config/styles.dart';
 import 'package:travel_app/models/category.dart';
+import 'package:travel_app/models/group.dart';
 import 'package:travel_app/models/popular_places.dart';
 
 import '../models/location.dart';
@@ -8,45 +9,42 @@ import '../models/location_fact.dart';
 class AppData {
   static final List<Location> items = [
     Location(
-        Name: 'Arashiyama Bamboo Grove',
+      Name: 'Arashiyama Bamboo Grove',
       ExactLocation: 'Japan, Asia',
-        URL:
-            // 'https://www.jrailpass.com/blog/wp-content/uploads/2016/05/arashiyama-bamboo-grove-kyoto-e1466611768221.jpg',
-        'assets/places/place_1.jpg',
-        Facts: <LocationFact>[
-          LocationFact(
-              title: 'Summary',
-              text:
-                  'While we could go on about the ethereal glow and seemingly endless heights of this bamboo grove on the outskirts of Kyoto, the sight\'s pleasures extend beyond the visual realm'),
-          LocationFact(
-              title: 'How to Get There',
-              text:
-                  'Kyoto airport, with several terminals, is located 16 kilometres south of the city and is also known as Kyoto. Kyoto can also be reached by transport links from other regional airports.')
-        ],
-        Places: <PopularPlaces>[
-          PopularPlaces(
-              place: 'Museum of Maritime Science',
-              url:
-                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
-          PopularPlaces(
-              place: 'Legolan Discovery Center Tokyo',
-              url:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
-          PopularPlaces(
-              place: 'Shiokaze Park',
-              url:
-                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
-          PopularPlaces(
-              place: 'Fuji Television',
-              url:
-                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
-        ],),
+      URL:
+          // 'https://www.jrailpass.com/blog/wp-content/uploads/2016/05/arashiyama-bamboo-grove-kyoto-e1466611768221.jpg',
+          'assets/places/place_1.jpg',
+      Facts: <LocationFact>[
+        LocationFact(
+            title: 'Summary',
+            text:
+                'While we could go on about the ethereal glow and seemingly endless heights of this bamboo grove on the outskirts of Kyoto, the sight\'s pleasures extend beyond the visual realm'),
+        LocationFact(
+            title: 'How to Get There',
+            text:
+                'Kyoto airport, with several terminals, is located 16 kilometres south of the city and is also known as Kyoto. Kyoto can also be reached by transport links from other regional airports.')
+      ],
+      Places: <PopularPlaces>[
+        PopularPlaces(
+            place: 'Museum of Maritime Science',
+            url: 'assets/illustration/group_1.png'),
+        PopularPlaces(
+            place: 'Legolan Discovery Center Tokyo',
+            url: 'assets/illustration/group_2.png'),
+        PopularPlaces(
+            place: 'Shiokaze Park',
+            url: 'assets/illustration/group_3.png'),
+        PopularPlaces(
+            place: 'Fuji Television',
+            url: 'assets/illustration/group_4.png')
+      ],
+    ),
     Location(
         Name: 'Mount Fuji',
-  ExactLocation: 'Japan, Asia',
+        ExactLocation: 'Japan, Asia',
         URL:
             // 'https://www.planetware.com/photos-large/JPN/japan-mt-fuji-and-cherry-blossoms.jpg',
-        'assets/places/place_2.jpg',
+            'assets/places/place_2.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -60,27 +58,23 @@ class AppData {
         Places: <PopularPlaces>[
           PopularPlaces(
               place: 'Museum of Maritime Science',
-              url:
-                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+              url: 'assets/illustration/group_1.png'),
           PopularPlaces(
               place: 'Legolan Discovery Center Tokyo',
-              url:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+              url: 'assets/illustration/group_2.png'),
           PopularPlaces(
               place: 'Shiokaze Park',
-              url:
-                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+              url: 'assets/illustration/group_3.png'),
           PopularPlaces(
               place: 'Fuji Television',
-              url:
-                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
+              url: 'assets/illustration/group_4.png')
         ]),
     Location(
         Name: 'Kiyomizu-dera',
         ExactLocation: 'Japan, Asia',
         URL:
             // 'https://plingthinks.com/wp-content/uploads/2016/09/kiyomizu-dera-autumn-colors-kyoto-temple-e1556013806570.jpg',
-        'assets/places/place_3.jpg',
+            'assets/places/place_3.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -93,27 +87,23 @@ class AppData {
         Places: <PopularPlaces>[
           PopularPlaces(
               place: 'Museum of Maritime Science',
-              url:
-                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+              url: 'assets/illustration/group_1.png'),
           PopularPlaces(
               place: 'Legolan Discovery Center Tokyo',
-              url:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+              url: 'assets/illustration/group_2.png'),
           PopularPlaces(
               place: 'Shiokaze Park',
-              url:
-                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+              url: 'assets/illustration/group_3.png'),
           PopularPlaces(
               place: 'Fuji Television',
-              url:
-                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
+              url: 'assets/illustration/group_4.png')
         ]),
     Location(
         Name: 'Kinkaku-ji',
         ExactLocation: 'Japan, Asia',
         URL:
             // 'https://world-travel-guy-inboundhorizonsi.netdna-ssl.com/wp-content/uploads/2020/04/DSCF5510.jpg',
-        'assets/places/place_4.jpg',
+            'assets/places/place_4.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -127,27 +117,23 @@ class AppData {
         Places: <PopularPlaces>[
           PopularPlaces(
               place: 'Museum of Maritime Science',
-              url:
-                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+              url: 'assets/illustration/group_1.png'),
           PopularPlaces(
               place: 'Legolan Discovery Center Tokyo',
-              url:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+              url: 'assets/illustration/group_2.png'),
           PopularPlaces(
               place: 'Shiokaze Park',
-              url:
-                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+              url: 'assets/illustration/group_3.png'),
           PopularPlaces(
               place: 'Fuji Television',
-              url:
-                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
+              url: 'assets/illustration/group_4.png')
         ]),
     Location(
         Name: 'Odaiba',
         ExactLocation: 'Japan, Asia',
         URL:
             // 'https://dailyartfixx.com/wp-content/uploads/2009/08/fuji-tv-building-odaiba.jpg',
-        'assets/places/place_5.jpg',
+            'assets/places/place_5.jpg',
         Facts: <LocationFact>[
           LocationFact(
               title: 'Summary',
@@ -161,20 +147,16 @@ class AppData {
         Places: <PopularPlaces>[
           PopularPlaces(
               place: 'Museum of Maritime Science',
-              url:
-                  'https://media-cdn.tripadvisor.com/media/photo-s/11/2b/06/12/dsc-1193-largejpg.jpg'),
+              url: 'assets/illustration/group_1.png'),
           PopularPlaces(
               place: 'Legolan Discovery Center Tokyo',
-              url:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAdw_gEYIu-JRctfAlxoSD0N6OldmzqUGigeZ6-gzRTRTgLYLE&usqp=CAU'),
+              url: 'assets/illustration/group_2.png'),
           PopularPlaces(
               place: 'Shiokaze Park',
-              url:
-                  'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/06/fuji-tv-building_glane.jpg'),
+              url: 'assets/illustration/group_3.png'),
           PopularPlaces(
               place: 'Fuji Television',
-              url:
-                  'https://dimg04.c-ctrip.com/images/tg/736/409/908/9bd4b208d38b4f9d973e76d5c2e35984_C_500_500.jpg?proc=source%2Ftrip')
+              url: 'assets/illustration/group_4.png')
         ]),
   ];
 
@@ -206,6 +188,37 @@ class AppData {
         CategoryIcon: 'assets/icons/meeting.png'),
   ];
 
+  static List<Group> groupInfo = [
+    Group(
+        GroupId: "1",
+        GroupThumbnail: "assets/illustration/group_1.png",
+        GroupName: "Kashmir Trip 2022",
+        GroupCategory: "Camp and Travel",
+        GroupFormationDate: "22nd June 2022",
+        TotalMember: 20),
+    Group(
+        GroupId: "2",
+        GroupThumbnail: "assets/illustration/group_2.png",
+        GroupName: "Bandarban Trip 2022",
+        GroupCategory: "Tour and Travel",
+        GroupFormationDate: "22nd June 2022",
+        TotalMember: 20),
+    Group(
+        GroupId: "3",
+        GroupThumbnail: "assets/illustration/group_3.png",
+        GroupName: "Saint Martin Tour",
+        GroupCategory: "Sea and Travel",
+        GroupFormationDate: "22nd June 2022",
+        TotalMember: 20),
+    Group(
+        GroupId: "4",
+        GroupThumbnail: "assets/illustration/group_4.png",
+        GroupName: "Ladakhj Trip 2022",
+        GroupCategory: "Camp and Travel",
+        GroupFormationDate: "22nd June 2022",
+        TotalMember: 20),
+  ];
+
   static Location fetchAny() {
     //items static member so we have to call it with ClassName
     return AppData.items[0];
@@ -217,5 +230,9 @@ class AppData {
 
   static fetchCategory() {
     return AppData.categoryItems;
+  }
+
+  static fetchGroupInfo() {
+    return AppData.groupInfo;
   }
 }
