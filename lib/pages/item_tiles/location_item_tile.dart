@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/models/location.dart';
 
-import '../location_details.dart';
+import '../location/location_details.dart';
 
 class LocationItemTile extends StatelessWidget {
   Location location;
@@ -23,7 +23,7 @@ class LocationItemTile extends StatelessWidget {
               color: Colors.white.withOpacity(0.9),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey[500]!,
+                    color: Colors.grey[400]!,
                     offset: const Offset(2, 2),
                     blurRadius: 4,
                     spreadRadius: 1),

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/config/styles.dart';
 
-import '../home_page.dart';
+import '../onboard/home_page.dart';
 
 class LoginBottomWidget extends StatelessWidget {
   const LoginBottomWidget({Key? key}) : super(key: key);
@@ -88,7 +88,7 @@ class LoginBottomWidget extends StatelessWidget {
                             ),
                           )),
                       onPressed: () async {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
                       },
                       child: const Padding(
                         padding: EdgeInsets.symmetric(

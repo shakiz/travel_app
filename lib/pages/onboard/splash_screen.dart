@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(milliseconds: 1500),
           () async {
         timer.cancel();
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage()));
       },
     );
   }
