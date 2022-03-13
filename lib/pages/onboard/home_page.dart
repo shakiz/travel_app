@@ -143,7 +143,15 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 16,
             ),
-            const SearchWidget(),
+            SearchWidget(
+              isAdvanceFilterVisible: true,
+              isCancelIconVisible: false,
+              inputFieldBackColor: Colors.grey.withOpacity(0.2),
+              hintText: 'Search your destination',
+              searchIconColor: Colors.black54,
+              hintTextColor: Colors.black54,
+              cancelIconColor: Colors.black,
+            ),
             const SizedBox(
               height: 16,
             ),
