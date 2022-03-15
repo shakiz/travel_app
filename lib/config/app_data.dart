@@ -1,7 +1,9 @@
 import 'package:travel_app/config/styles.dart';
 import 'package:travel_app/models/category.dart';
 import 'package:travel_app/models/group.dart';
+import 'package:travel_app/models/group_member.dart';
 import 'package:travel_app/models/popular_places.dart';
+import 'package:travel_app/models/tab_icon_data.dart';
 
 import '../models/location.dart';
 import '../models/location_fact.dart';
@@ -32,11 +34,9 @@ class AppData {
             place: 'Legolan Discovery Center Tokyo',
             url: 'assets/illustration/group_2.png'),
         PopularPlaces(
-            place: 'Shiokaze Park',
-            url: 'assets/illustration/group_3.png'),
+            place: 'Shiokaze Park', url: 'assets/illustration/group_3.png'),
         PopularPlaces(
-            place: 'Fuji Television',
-            url: 'assets/illustration/group_4.png')
+            place: 'Fuji Television', url: 'assets/illustration/group_4.png')
       ],
     ),
     Location(
@@ -63,11 +63,9 @@ class AppData {
               place: 'Legolan Discovery Center Tokyo',
               url: 'assets/illustration/group_2.png'),
           PopularPlaces(
-              place: 'Shiokaze Park',
-              url: 'assets/illustration/group_3.png'),
+              place: 'Shiokaze Park', url: 'assets/illustration/group_3.png'),
           PopularPlaces(
-              place: 'Fuji Television',
-              url: 'assets/illustration/group_4.png')
+              place: 'Fuji Television', url: 'assets/illustration/group_4.png')
         ]),
     Location(
         Name: 'Kiyomizu-dera',
@@ -92,11 +90,9 @@ class AppData {
               place: 'Legolan Discovery Center Tokyo',
               url: 'assets/illustration/group_2.png'),
           PopularPlaces(
-              place: 'Shiokaze Park',
-              url: 'assets/illustration/group_3.png'),
+              place: 'Shiokaze Park', url: 'assets/illustration/group_3.png'),
           PopularPlaces(
-              place: 'Fuji Television',
-              url: 'assets/illustration/group_4.png')
+              place: 'Fuji Television', url: 'assets/illustration/group_4.png')
         ]),
     Location(
         Name: 'Kinkaku-ji',
@@ -122,11 +118,9 @@ class AppData {
               place: 'Legolan Discovery Center Tokyo',
               url: 'assets/illustration/group_2.png'),
           PopularPlaces(
-              place: 'Shiokaze Park',
-              url: 'assets/illustration/group_3.png'),
+              place: 'Shiokaze Park', url: 'assets/illustration/group_3.png'),
           PopularPlaces(
-              place: 'Fuji Television',
-              url: 'assets/illustration/group_4.png')
+              place: 'Fuji Television', url: 'assets/illustration/group_4.png')
         ]),
     Location(
         Name: 'Odaiba',
@@ -152,11 +146,9 @@ class AppData {
               place: 'Legolan Discovery Center Tokyo',
               url: 'assets/illustration/group_2.png'),
           PopularPlaces(
-              place: 'Shiokaze Park',
-              url: 'assets/illustration/group_3.png'),
+              place: 'Shiokaze Park', url: 'assets/illustration/group_3.png'),
           PopularPlaces(
-              place: 'Fuji Television',
-              url: 'assets/illustration/group_4.png')
+              place: 'Fuji Television', url: 'assets/illustration/group_4.png')
         ]),
   ];
 
@@ -219,6 +211,64 @@ class AppData {
         TotalMember: 20),
   ];
 
+  static List<GroupMember> groupMemberInfo = [
+    GroupMember(
+        GroupMemberId: "1",
+        GroupId: "1",
+        GroupMemberName: "Jahid",
+        GroupFormationDate: "22nd Jan 2021",
+        GroupMemberHeading: "Travel and live a healthy life."),
+    GroupMember(
+        GroupMemberId: "2",
+        GroupId: "1",
+        GroupMemberName: "Rashed",
+        GroupFormationDate: "22nd Jan 2021",
+        GroupMemberHeading: "Allah is the best planner."),
+    GroupMember(
+        GroupMemberId: "3",
+        GroupId: "1",
+        GroupMemberName: "Sagor",
+        GroupFormationDate: "22nd Jan 2021",
+        GroupMemberHeading: "I am going to america."),
+    GroupMember(
+        GroupMemberId: "4",
+        GroupId: "1",
+        GroupMemberName: "Shakil",
+        GroupFormationDate: "22nd Jan 2021",
+        GroupMemberHeading: "Be faithful always and stay positive."),
+  ];
+
+  static List<TabIconData> tabIconsList = <TabIconData>[
+    TabIconData(
+      imagePath: 'assets/icons/home.png',
+      selectedImagePath: 'assets/icons/home.png',
+      index: 0,
+      isSelected: true,
+      animationController: null,
+    ),
+    TabIconData(
+      imagePath: 'assets/icons/business_man.png',
+      selectedImagePath: 'assets/icons/business_man.png',
+      index: 1,
+      isSelected: false,
+      animationController: null,
+    ),
+    TabIconData(
+      imagePath: 'assets/icons/message.png',
+      selectedImagePath: 'assets/icons/message.png',
+      index: 2,
+      isSelected: false,
+      animationController: null,
+    ),
+    TabIconData(
+      imagePath: 'assets/icons/bookmark.png',
+      selectedImagePath: 'assets/icons/bookmark.png',
+      index: 3,
+      isSelected: false,
+      animationController: null,
+    ),
+  ];
+
   static Location fetchAny() {
     //items static member so we have to call it with ClassName
     return AppData.items[0];
@@ -234,5 +284,13 @@ class AppData {
 
   static fetchGroupInfo() {
     return AppData.groupInfo;
+  }
+
+  static fetchGroupMemberInfo() {
+    return AppData.groupMemberInfo;
+  }
+
+  static fetchTabIconData() {
+    return AppData.tabIconsList;
   }
 }

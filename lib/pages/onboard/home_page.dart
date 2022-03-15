@@ -6,8 +6,10 @@ import 'package:travel_app/config/styles.dart';
 import 'package:travel_app/models/category.dart';
 import 'package:travel_app/models/group.dart';
 import 'package:travel_app/models/location.dart';
+import 'package:travel_app/models/tab_icon_data.dart';
 import 'package:travel_app/pages/item_tiles/group_item_tile.dart';
 import 'package:travel_app/pages/item_tiles/location_item_tile.dart';
+import 'package:travel_app/pages/widgets/bottom_menu_nav_view.dart';
 import 'package:travel_app/pages/widgets/search_widget.dart';
 
 import '../item_tiles/category_item_tile.dart';
@@ -19,19 +21,32 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  List<TabIconData> tabIconsList = AppData.fetchTabIconData();
   final FocusNode _focusNode = FocusNode();
   final List<Category> _categoryList = AppData.fetchCategory();
   final List<Location> _locationList = AppData.fetchAll();
   final List<Group> _groupList = AppData.fetchGroupInfo();
   late PageController _pageController;
   final List<bool> _filterSelection = [false, false, false, false];
+  late AnimationController animationController, itemAnimationController;
+  late Animation<double> animation, animationTranslate, animationTwo;
 
   int _currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 400), vsync: this);
+    itemAnimationController = AnimationController(
+        duration: const Duration(milliseconds: 400), vsync: this);
+    animation =
+        Tween<double>(begin: 1.0, end: 0.0).animate(animationController);
+    animationTranslate =
+        Tween<double>(begin: 0, end: 150.0).animate(animationController);
+    animationTwo =
+        Tween<double>(begin: 0.0, end: 1.0).animate(itemAnimationController);
     _pageController = PageController();
   }
 
@@ -46,46 +61,61 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavyBar(
-          selectedIndex: _currentIndex,
-          showElevation: true, // use this to remove appBar's elevation
-          onItemSelected: (index) => setState(() {
-            _currentIndex = index;
-            _pageController.animateToPage(index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.ease);
-          }),
-          items: [
-            BottomNavyBarItem(
-              icon: const Icon(Icons.home_filled),
-              title: const Text('Home'),
-              activeColor: Colors.red,
+        body: Stack(
+          children: [
+            changeScreen(_currentIndex),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: AnimatedBuilder(
+                  animation: animation,
+                  builder: (context, child) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: Transform.translate(
+                        offset: Offset(0.0, animationTranslate.value),
+                        child: BottomMenuNavView(
+                          tabIconsList: tabIconsList,
+                          addClick: () {
+                            setState(() {
+                              print("Added index:: $_currentIndex");
+                              _currentIndex = 0;
+                            });
+                          },
+                          changeIndex: (int index) {
+                            print("Clicked index:: $index");
+                            setState(() {
+                              _currentIndex = index;
+                            });
+                          },
+                        ),
+                      ),
+                    );
+                  }),
             ),
-            BottomNavyBarItem(
-                icon: const Icon(Icons.people),
-                title: const Text('Profile'),
-                activeColor: Colors.purpleAccent),
-            BottomNavyBarItem(
-                icon: const Icon(Icons.message),
-                title: const Text('Community'),
-                activeColor: Colors.pink),
-            BottomNavyBarItem(
-                icon: const Icon(Icons.bookmark),
-                title: const Text('Saved'),
-                activeColor: Colors.blue),
           ],
         ),
-        body: body(),
       ),
     );
   }
 
-  Widget body() {
+  //region change bottom nav screen
+  Widget changeScreen(int index) {
+    if (index == 0) {
+      itemAnimationController.forward();
+      //return showAiVoiceCommand();
+      return homeScreen();
+    }
+    return Container();
+  }
+
+//endregion
+
+  Widget homeScreen() {
     return SingleChildScrollView(
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding:
-            const EdgeInsets.only(top: 24, bottom: 24, left: 16, right: 16),
+            const EdgeInsets.only(top: 24, bottom: 64, left: 16, right: 16),
         color: Colors.white.withOpacity(0.9),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -323,17 +353,12 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const Text(
                   "Travel Groups",
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 16
-                  ),
+                  style: TextStyle(color: Colors.black87, fontSize: 16),
                 ),
                 Text(
                   "Show More",
                   style: TextStyle(
-                      color: Colors.black87.withOpacity(0.5),
-                      fontSize: 14
-                  ),
+                      color: Colors.black87.withOpacity(0.5), fontSize: 14),
                 )
               ],
             ),
