@@ -9,6 +9,7 @@ import 'package:travel_app/models/location.dart';
 import 'package:travel_app/models/tab_icon_data.dart';
 import 'package:travel_app/pages/item_tiles/group_item_tile.dart';
 import 'package:travel_app/pages/item_tiles/location_item_tile.dart';
+import 'package:travel_app/pages/messages/messages_page.dart';
 import 'package:travel_app/pages/widgets/bottom_menu_nav_view.dart';
 import 'package:travel_app/pages/widgets/search_widget.dart';
 
@@ -102,8 +103,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget changeScreen(int index) {
     if (index == 0) {
       itemAnimationController.forward();
-      //return showAiVoiceCommand();
       return homeScreen();
+    } else if (index == 2) {
+      itemAnimationController.forward();
+      return const MessagesPage();
     }
     return Container();
   }
@@ -181,6 +184,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               searchIconColor: Colors.black54,
               hintTextColor: Colors.black54,
               cancelIconColor: Colors.black,
+              searchBoxShadow: false,
             ),
             const SizedBox(
               height: 16,

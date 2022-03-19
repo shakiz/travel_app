@@ -89,6 +89,7 @@ class _GroupDetailsState extends State<GroupDetails> {
                       searchIconColor: Colors.black87,
                       hintTextColor: Colors.black54,
                       cancelIconColor: Colors.black87,
+                      searchBoxShadow: false,
                     ),
                   ),
                   Positioned(
@@ -266,6 +267,16 @@ class _GroupDetailsState extends State<GroupDetails> {
                 ),
               ),
               const SizedBox(
+                width: 16,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 16, right: 16),
+                child: Text(
+                  "Placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+                  style: TextStyle(fontSize: 16, color: Colors.black87),
+                ),
+              ),
+              const SizedBox(
                 height: 16,
               ),
               Container(
@@ -351,7 +362,11 @@ class _GroupDetailsState extends State<GroupDetails> {
           right: 20,
           child: FloatingActionButton(
             backgroundColor: Colors.white,
-            child: const Icon(Icons.favorite, color: Colors.orange,),
+            heroTag: "favorite",
+            child: const Icon(
+              Icons.favorite,
+              color: Colors.orange,
+            ),
             elevation: 4,
             onPressed: () {},
           ),
@@ -361,7 +376,11 @@ class _GroupDetailsState extends State<GroupDetails> {
           right: 20,
           child: FloatingActionButton(
             backgroundColor: Colors.white,
-            child: const Icon(Icons.message, color: Colors.orange,),
+            heroTag: "message",
+            child: const Icon(
+              Icons.message,
+              color: Colors.orange,
+            ),
             elevation: 4,
             onPressed: () {},
           ),

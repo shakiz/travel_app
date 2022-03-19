@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class SearchWidget extends StatefulWidget {
   bool isAdvanceFilterVisible;
   bool isCancelIconVisible;
+  bool searchBoxShadow;
   Color inputFieldBackColor, hintTextColor, cancelIconColor, searchIconColor;
   String hintText;
 
   SearchWidget(
       {required this.isAdvanceFilterVisible,
       required this.isCancelIconVisible,
+      required this.searchBoxShadow,
       required this.inputFieldBackColor,
       required this.hintText,
       required this.hintTextColor,
@@ -42,6 +44,21 @@ class _SearchWidgetState extends State<SearchWidget> {
             decoration: BoxDecoration(
               color: widget.inputFieldBackColor,
               borderRadius: const BorderRadius.all(Radius.circular(8)),
+              boxShadow: widget.searchBoxShadow ? [
+                const BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 1,
+                    spreadRadius: 1,
+                    offset: Offset(1, 2)
+                )
+              ] : [
+                const BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 0,
+                    spreadRadius: 0,
+                    offset: Offset(0, 0)
+                )
+              ]
             ),
             child: Row(
               children: [
