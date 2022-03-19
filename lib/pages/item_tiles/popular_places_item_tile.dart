@@ -17,7 +17,7 @@ class PopularPlacesItemTile extends StatelessWidget {
       margin: const EdgeInsets.only(right: 20, bottom: 20, top: 10),
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
         image: DecorationImage(
             image: AssetImage(_popularPlaces.url), fit: BoxFit.fill),
         boxShadow: <BoxShadow>[
@@ -25,7 +25,7 @@ class PopularPlacesItemTile extends StatelessWidget {
             offset: const Offset(4, 4),
             blurRadius: 10,
             spreadRadius: 4,
-            color: Colors.black54.withOpacity(0.1),
+            color: Colors.black54.withOpacity(0.08),
           )
         ],
       ),

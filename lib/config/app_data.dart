@@ -2,6 +2,7 @@ import 'package:travel_app/config/styles.dart';
 import 'package:travel_app/models/category.dart';
 import 'package:travel_app/models/group.dart';
 import 'package:travel_app/models/group_member.dart';
+import 'package:travel_app/models/messages.dart';
 import 'package:travel_app/models/popular_places.dart';
 import 'package:travel_app/models/tab_icon_data.dart';
 
@@ -269,6 +270,51 @@ class AppData {
     ),
   ];
 
+  static List<Messages> messageList = <Messages>[
+    Messages(
+        MessageId: "1",
+        MessageTitle: "Hello !!",
+        MessageFromPersonName: "Shakil",
+        MessageToPersonName: "Rashed",
+        MessageDate: "21 Jun 2021"),
+    Messages(
+        MessageId: "2",
+        MessageTitle: "How are you doing?",
+        MessageFromPersonName: "Emran",
+        MessageToPersonName: "Rashed",
+        MessageDate: "12 July 2021"),
+    Messages(
+        MessageId: "3",
+        MessageTitle: "Meet me tomorrow!",
+        MessageFromPersonName: "Shahaz",
+        MessageToPersonName: "Jahid",
+        MessageDate: "21 Jun 2020"),
+    Messages(
+        MessageId: "4",
+        MessageTitle: "Please reply this message. Urgent!!",
+        MessageFromPersonName: "Emran",
+        MessageToPersonName: "Shahaz",
+        MessageDate: "21 Jun 2021"),
+    Messages(
+        MessageId: "5",
+        MessageTitle: "Let's catch up!",
+        MessageFromPersonName: "David",
+        MessageToPersonName: "Rashed",
+        MessageDate: "21 Jun 2021"),
+    Messages(
+        MessageId: "6",
+        MessageTitle: "Anniversary coming soon.",
+        MessageFromPersonName: "Herry",
+        MessageToPersonName: "Liam",
+        MessageDate: "21 Jun 2021"),
+    Messages(
+        MessageId: "7",
+        MessageTitle: "Good Night.",
+        MessageFromPersonName: "Shakil",
+        MessageToPersonName: "Sagor",
+        MessageDate: "21 Jun 2021")
+  ];
+
   static Location fetchAny() {
     //items static member so we have to call it with ClassName
     return AppData.items[0];
@@ -292,5 +338,9 @@ class AppData {
 
   static fetchTabIconData() {
     return AppData.tabIconsList;
+  }
+
+  static List<Messages> fetchMessages() {
+    return AppData.messageList;
   }
 }

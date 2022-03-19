@@ -78,7 +78,7 @@ class _BottomBarViewState extends State<BottomMenuNavView>
                         tabIconData: widget.tabIconsList[2],
                         removeAllSelect: () {
                           setRemoveAllSelection(widget.tabIconsList[2]);
-                          widget.changeIndex(3);
+                          widget.changeIndex(2);
                         },
                         iconColor: Colors.black54,
                       ),
@@ -89,7 +89,7 @@ class _BottomBarViewState extends State<BottomMenuNavView>
                       tabIconData: widget.tabIconsList[3],
                       removeAllSelect: () {
                         setRemoveAllSelection(widget.tabIconsList[3]);
-                        widget.changeIndex(4);
+                        widget.changeIndex(3);
                       },
                       iconColor: Colors.black54,
                     ),
