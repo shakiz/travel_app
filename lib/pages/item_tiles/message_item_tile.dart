@@ -12,9 +12,30 @@ class MessageItemTile extends StatelessWidget {
     return Container(
       height: 80,
       alignment: Alignment.center,
+      decoration:  BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(4)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.05),
+            offset: const Offset(1, 1),
+            spreadRadius: 2,
+            blurRadius: 1
+          )
+        ]
+      ),
+      margin: const EdgeInsets.only(bottom: 17),
       child: ListTile(
-        leading: Image.asset("assets/icons/business_man.png"),
-        title: Text(_messages.MessageTitle),
+        leading: Container(
+            padding: const EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: Colors.black12.withOpacity(0.1),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
+          ),
+            child: Image.asset("assets/icons/business_man.png")),
+        title: Text(_messages.MessageFromPersonName, style: const TextStyle(color: Colors.black87, fontSize: 16),),
+        subtitle: Text(_messages.MessageTitle, style: const TextStyle(color: Colors.black54, fontSize: 14),),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16,),
       ),
     );
   }
