@@ -1,4 +1,3 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/config/app_data.dart';
@@ -10,6 +9,7 @@ import 'package:travel_app/models/tab_icon_data.dart';
 import 'package:travel_app/pages/item_tiles/group_item_tile.dart';
 import 'package:travel_app/pages/item_tiles/location_item_tile.dart';
 import 'package:travel_app/pages/messages/messages_page.dart';
+import 'package:travel_app/pages/saved/saved_places_widget.dart';
 import 'package:travel_app/pages/widgets/bottom_menu_nav_view.dart';
 import 'package:travel_app/pages/widgets/search_widget.dart';
 
@@ -107,6 +107,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     } else if (index == 2) {
       itemAnimationController.forward();
       return const MessagesPage();
+    } else if (index == 3) {
+      itemAnimationController.forward();
+      return const SavedPlacesWidget();
     }
     return Container();
   }
