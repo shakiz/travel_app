@@ -1,4 +1,5 @@
 import 'package:travel_app/config/styles.dart';
+import 'package:travel_app/models/buddies.dart';
 import 'package:travel_app/models/category.dart';
 import 'package:travel_app/models/group.dart';
 import 'package:travel_app/models/group_member.dart';
@@ -315,6 +316,14 @@ class AppData {
         MessageDate: "21 Jun 2021")
   ];
 
+  static List<Buddies> buddyList = <Buddies>[
+    Buddies(BuddyId: "1", BuddyName: "David", BuddyImage: "assets/images/male_1.png", BuddyLocation: "Ireland"),
+    Buddies(BuddyId: "2", BuddyName: "Millan", BuddyImage: "assets/images/male_2.png", BuddyLocation: "England"),
+    Buddies(BuddyId: "3", BuddyName: "Muler", BuddyImage: "assets/images/male_3.png", BuddyLocation: "India"),
+    Buddies(BuddyId: "4", BuddyName: "Thomas", BuddyImage: "assets/images/male_4.png", BuddyLocation: "Japan"),
+    Buddies(BuddyId: "5", BuddyName: "Beckham", BuddyImage: "assets/images/male_1.png", BuddyLocation: "Ireland"),
+  ];
+
   static Location fetchAny() {
     //items static member so we have to call it with ClassName
     return AppData.items[0];
@@ -340,7 +349,11 @@ class AppData {
     return AppData.tabIconsList;
   }
 
-  static List<Messages> fetchMessages() {
+  static fetchMessages() {
     return AppData.messageList;
+  }
+
+  static fetchBuddies() {
+    return AppData.buddyList;
   }
 }

@@ -16,7 +16,7 @@ class SavedPlacesWidget extends StatefulWidget {
 }
 
 class _SavedPlacesWidgetState extends State<SavedPlacesWidget> {
-  List<Location> _savedLocations = AppData.fetchAll();
+  final List<Location> _savedLocations = AppData.fetchAll();
   @override
   Widget build(BuildContext context) {
     return Container(

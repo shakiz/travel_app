@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/config/app_data.dart';
-import 'package:travel_app/config/styles.dart';
 import 'package:travel_app/models/category.dart';
 import 'package:travel_app/models/group.dart';
 import 'package:travel_app/models/location.dart';
 import 'package:travel_app/models/tab_icon_data.dart';
+import 'package:travel_app/pages/buddies/travel_buddies_widget.dart';
 import 'package:travel_app/pages/item_tiles/group_item_tile.dart';
 import 'package:travel_app/pages/item_tiles/location_item_tile.dart';
 import 'package:travel_app/pages/messages/messages_page.dart';
@@ -104,6 +104,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     if (index == 0) {
       itemAnimationController.forward();
       return homeScreen();
+    } else if (index == 1) {
+      itemAnimationController.forward();
+      return const TravelBuddiesWidget();
     } else if (index == 2) {
       itemAnimationController.forward();
       return const MessagesPage();
