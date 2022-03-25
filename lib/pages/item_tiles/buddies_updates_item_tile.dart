@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:travel_app/models/buddies.dart';
 import 'package:travel_app/models/category.dart';
 import 'package:travel_app/models/popular_places.dart';
@@ -13,7 +14,7 @@ class BuddiesUpdatesItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 160,
-      height: 272,
+      height: 258,
       alignment: Alignment.center,
       margin: const EdgeInsets.only(right: 20, bottom: 20, top: 0),
       padding: const EdgeInsets.all(4),
@@ -42,7 +43,8 @@ class BuddiesUpdatesItemTile extends StatelessWidget {
                 _buddies.BuddyName,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 16,),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,),
                 textAlign: TextAlign.center,
               )),
         ],
