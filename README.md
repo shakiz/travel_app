@@ -1,6 +1,34 @@
-# travel_app
+# Travel App - Travelo
 
-A new Flutter project.
+A simple travel based app with flutter.You will get a complete journey for a travel app. Make sure to check this repo
+and if you do like it give a star and follow for more updates.
+
+# Used Packages and Widgets
+- Cupertino Icons
+- Lottie Animation
+- Flutter Staggered Animation
+- Widgets (ListView, GridView etc..)
+
+# Sample Screens
+
+## Splash Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/splash_page.jpg" width="240" height="480">
+## Intro Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/intro_page.jpg" width="240" height="480">
+## Login Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/login_page.jpg" width="240" height="480">
+## Home Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/home_page.jpg" width="240" height="480">
+## Location Details Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/location_details_page.jpg" width="240" height="480">
+## Group Details Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/group_details_page.jpg" width="240" height="480">
+## Buddies Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/buddies_page.jpg" width="240" height="480">
+## Saved Places Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/saved_places_page.jpg" width="240" height="480">
+## Messages Screen
+<img src="https://raw.githubusercontent.com/shakiz/travel_app/master/assets/screenshots/messages_page.jpg" width="240" height="480">
 
 ## Getting Started
 
